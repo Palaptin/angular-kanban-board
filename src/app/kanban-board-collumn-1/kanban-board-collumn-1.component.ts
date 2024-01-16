@@ -1,4 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
+import { Ticket } from '../ticket';
 
 @Component({
   selector: 'app-kanban-board-collumn-1',
@@ -7,5 +8,12 @@ import { Component, HostBinding } from '@angular/core';
 })
 
 export class KanbanBoardCollumn1Component {
-
+  ticket: Ticket = {
+    id: 1,
+    necessary_tickets: [],
+    title: "Test",
+    details: "Testerestes",
+    priority:1,
+    state:1,
+  };
 }
