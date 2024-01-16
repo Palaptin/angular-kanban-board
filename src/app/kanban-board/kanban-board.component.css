@@ -1,0 +1,9 @@
+.kanban_collumn {
+    display: inline-block;
+    padding: 2%;
+    margin: 0.1%;
+    background-color: greenyellow;
+    border-width: 0.2%;
+    border-style: solid;
+    border-color: red;
+  }
