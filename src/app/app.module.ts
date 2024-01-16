@@ -11,6 +11,9 @@ import { KanbanBoardCollumn3Component } from './kanban-board-collumn-3/kanban-bo
 import { KanbanBoardCollumn4Component } from './kanban-board-collumn-4/kanban-board-collumn-4.component';
 import { KanbanBoardCollumn5Component } from './kanban-board-collumn-5/kanban-board-collumn-5.component';
 import { KanbanTicketComponent } from './kanban-ticket/kanban-ticket.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DummyTempDbService } from './dummy-temp-db.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { KanbanTicketComponent } from './kanban-ticket/kanban-ticket.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      DummyTempDbService, { dataEncapsulation: false })
   ],
   providers: [],
   bootstrap: [AppComponent]
