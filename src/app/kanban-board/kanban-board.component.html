@@ -1,12 +1,48 @@
 <div class="kanban_board" >
 
-<app-kanban-board-collumn-1 class="kanban_collumn"></app-kanban-board-collumn-1>
+    <div class="kanban_collumn">
+        <div class ="collumn_title">New</div>
+        <div class = "ticket_area">
+            <div *ngFor="let ticket of tickets[0] ">
+                    <app-kanban-ticket [ticket]=ticket></app-kanban-ticket>
+            </div>
+        </div>
+    </div>
 
-<app-kanban-board-collumn-2 class="kanban_collumn"></app-kanban-board-collumn-2>
+    <div class="kanban_collumn">
+        <div class ="collumn_title">In Progress</div>
+        <div class = "ticket_area">
+            <div *ngFor="let ticket of tickets[1] ">
+                    <app-kanban-ticket [ticket]=ticket></app-kanban-ticket>
+            </div>
+        </div>
+    </div>
 
-<app-kanban-board-collumn-3 class="kanban_collumn"></app-kanban-board-collumn-3>
+    <div class="kanban_collumn">
+        <div class ="collumn_title">Waiting</div>
+        <div class = "ticket_area">
+            <div *ngFor="let ticket of tickets[2] ">
+                    <app-kanban-ticket [ticket]=ticket></app-kanban-ticket>
+            </div>
+        </div>
+    </div>
 
-<app-kanban-board-collumn-4 class="kanban_collumn"></app-kanban-board-collumn-4>
+    <div class="kanban_collumn">
+        <div class ="collumn_title">Finished</div>
+        <div class = "ticket_area">
+            <div *ngFor="let ticket of tickets[3] ">
+                    <app-kanban-ticket [ticket]=ticket></app-kanban-ticket>
+            </div>
+        </div>
+    </div>
 
-<app-kanban-board-collumn-5 class="kanban_collumn"></app-kanban-board-collumn-5>
+    <div class="kanban_collumn">
+        <div class ="collumn_title">Productive</div>
+        <div class = "ticket_area">
+            <div *ngFor="let ticket of tickets[4] ">
+                    <app-kanban-ticket [ticket]=ticket></app-kanban-ticket>
+            </div>
+        </div>
+    </div>
+
 </div>
