@@ -14,6 +14,7 @@ import { KanbanTicketComponent } from './kanban-ticket/kanban-ticket.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DummyTempDbService } from './dummy-temp-db.service';
+import { DndDraggableDirective, DndDropzoneDirective, DndModule } from 'ngx-drag-drop';
 
 @NgModule({
   declarations: [
@@ -25,14 +26,16 @@ import { DummyTempDbService } from './dummy-temp-db.service';
     KanbanBoardCollumn3Component,
     KanbanBoardCollumn4Component,
     KanbanBoardCollumn5Component,
-    KanbanTicketComponent
+    KanbanTicketComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      DummyTempDbService, { dataEncapsulation: false })
+      DummyTempDbService, { dataEncapsulation: false }),
+      DndDraggableDirective,
+      DndModule
   ],
   providers: [],
   bootstrap: [AppComponent]

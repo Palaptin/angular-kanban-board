@@ -24,6 +24,13 @@ export class TicketService {
       );
   }
 
+  updateTicket(ticket:Ticket): Observable<any>{  
+    console.log("updating")
+    return this.http.put(this.Url, ticket, this.httpOptions).pipe(
+      catchError(this.handleError<any>('updateTicket'))
+    )
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   

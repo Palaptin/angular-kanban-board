@@ -1,4 +1,13 @@
-<div *ngIf="ticket" class="ticket">
+<div *ngIf="ticket" class="ticket"
+[dndDraggable]="ticket"
+[dndEffectAllowed]="'copyMove'"
+[dndDisableIf]="false"
+(dndStart)="onDragStart($event)"
+(dndCopied)="onDraggableCopied($event)"
+(dndLinked)="onDraggableLinked($event)"
+(dndMoved)="onDraggableMoved($event, ticket)"
+(dndCanceled)="onDragCanceled($event)"
+(dndEnd)="onDragEnd($event)">
 
     <h2>{{ticket.title}}</h2>
     <p>Dependencys: {{ticket.necessary_tickets.length}}</p>
