@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Ticket } from '../ticket';
 import { KanbanBoardComponent } from '../kanban-board/kanban-board.component';
 import { TicketService } from '../ticket.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-kanban-ticket',
@@ -9,7 +10,7 @@ import { TicketService } from '../ticket.service';
   styleUrl: './kanban-ticket.component.css'
 })
 export class KanbanTicketComponent {
-  @Input() ticket?: Ticket;
+  @Input() ticket!: Ticket;
   @Input() kanban_board!: KanbanBoardComponent;
 
   constructor(private ticketService: TicketService){}
@@ -26,9 +27,8 @@ export class KanbanTicketComponent {
     console.log("onDraggableLinked")
   //throw new Error('Method not implemented.');
   }
-  onDraggableMoved(event: Event, ticket:Ticket) {
-    console.log("onDraggableMoved")
-    this.kanban_board.moveTicket(ticket)
+  onDraggableMoved(event: Event) {
+    console.log(event)
   }
   onDragCanceled($event: Event) {
     console.log("onDragCanceled")

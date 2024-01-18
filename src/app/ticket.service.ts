@@ -15,13 +15,33 @@ export class TicketService {
   };
 
   constructor(private http: HttpClient) { }
-  
 
-  getTickets(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(this.Url)
+  tickets$: Observable<Ticket[][]> = of([[],[],[],[],[]]);
+
+  getTickets(): Observable<Ticket[][]> {
+    
+    let tickets_unordered = this.http.get<Ticket[]>(this.Url)
     .pipe(
       catchError(this.handleError<Ticket[]>('getTickets', []))
-      );
+    );
+    this.sortTickets(tickets_unordered)
+    return this.tickets$
+
+  }
+
+  sortTickets(tickets: Observable<Ticket[]>): void {
+    
+    tickets.subscribe(tickets => {
+      this.tickets$ = of([[],[],[],[],[]])
+      for(let ticket of tickets){
+        this.tickets$.subscribe(
+          tickete =>{
+            tickete[ticket.state-1].push(ticket)
+          }
+        )
+      }
+    })
+    
   }
 
   updateTicket(ticket:Ticket): Observable<any>{  

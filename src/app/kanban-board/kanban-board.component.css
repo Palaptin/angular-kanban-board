@@ -1,15 +1,15 @@
-.kanban_collumn {
+.kanban_column {
     display: flex;
     flex-direction: column;
     background-color: greenyellow;
     border: 2px solid red;
     flex:1;
-    
   }
 .kanban_board {
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 30px);
+    min-height: calc(100vh - 30px);
+    max-height: calc(100vh - 30px);
     gap: 15px;
     padding: 15px;
     }

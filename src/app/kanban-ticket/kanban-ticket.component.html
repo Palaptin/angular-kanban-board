@@ -1,19 +1,18 @@
-<div *ngIf="ticket" class="ticket"
+<!-- <div *ngIf="ticket$ | async as ticket" class="ticket"-->
+<div class="ticket"
 [dndDraggable]="ticket"
 [dndEffectAllowed]="'copyMove'"
 [dndDisableIf]="false"
 (dndStart)="onDragStart($event)"
 (dndCopied)="onDraggableCopied($event)"
 (dndLinked)="onDraggableLinked($event)"
-(dndMoved)="onDraggableMoved($event, ticket)"
+(dndMoved)="onDraggableMoved($event)"
 (dndCanceled)="onDragCanceled($event)"
 (dndEnd)="onDragEnd($event)">
 
-    <h2>{{ticket.title}}</h2>
+    <h2>{{ticket.title }}</h2>
     <p>Dependencys: {{ticket.necessary_tickets.length}}</p>
     <p>Details: {{ticket.details}}</p>
     <p>Priorität: {{ticket.priority}}</p>
-    <p>Status: {{ticket.state}}</p>
-    <p>id:{{ticket.id}}</p>
 
 </div>
