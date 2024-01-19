@@ -1,17 +1,15 @@
-<div class="ticket"
-[dndDraggable]="ticket"
-[dndEffectAllowed]="'copyMove'"
-[dndDisableIf]="false"
-(dndStart)="onDragStart($event)"
-(dndCopied)="onDraggableCopied($event)"
-(dndLinked)="onDraggableLinked($event)"
-(dndMoved)="onDraggableMoved($event, ticket)"
-(dndCanceled)="onDragCanceled($event)"
-(dndEnd)="onDragEnd($event)">
-
-    <h2>{{ticket.title }}</h2>
-    <p>Dependencys: {{ticket.necessary_tickets.length}}</p>
-    <p>Details: {{ticket.details}}</p>
-    <p>Priorität: {{ticket.priority}}</p>
-
+<div class="ticket">
+    <!-- https://github.com/reppners/ngx-drag-drop/issues/120 -->
+    <div 
+    [dndDraggable]="ticket"
+    [dndEffectAllowed]="'copyMove'"
+    >
+        <div class="pin" dndHandle></div>
+    </div>
+    <div>
+        <h2>{{ticket.title}}</h2>
+        <p>Dependencys: {{ticket.necessary_tickets.length}}</p>
+        <p>Details: {{ticket.details}}</p>
+        <p>Priorität: {{ticket.priority}}</p>
+    </div>
 </div>

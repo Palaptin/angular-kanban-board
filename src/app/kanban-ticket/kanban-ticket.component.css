@@ -9,9 +9,9 @@
     border: 1px solid #cccccc;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
     transform:rotate(4deg);
-     border-bottom-right-radius:60px 5px;
+    border-bottom-right-radius:60px 5px;
 }
-.ticket::before {
+.ticket .pin {
     content:"";
     background: #ff8c00 radial-gradient(at 8px 8px, rgba(255,255,255,0), rgba(0,0,0,0.5));
     width: 24px;
