@@ -5,4 +5,5 @@ export interface Ticket {
     details: String;
     priority:number;
     state:number;
+
 }

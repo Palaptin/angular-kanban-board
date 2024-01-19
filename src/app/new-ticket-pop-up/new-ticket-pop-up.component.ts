@@ -1,6 +1,9 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { PopUpService } from '../pop-up.service';
 import { PopUp } from '../pop-up';
+import { FormControl, FormGroup } from '@angular/forms';
+import { TicketService } from '../ticket.service';
+import { Ticket } from '../ticket';
 
 @Component({
   selector: 'app-new-ticket-pop-up',
@@ -14,39 +17,74 @@ export class NewTicketPopUpComponent implements PopUp{
   isOpen = false;
   private element: any;
 
-  constructor(private popUpService: PopUpService, private el: ElementRef) {
+  callback_function?: Function;
+
+
+  newTicketForm = new FormGroup({
+    title: new FormControl(''),
+    details: new FormControl(''),
+    priority: new FormControl('')
+  });
+
+  constructor(private popUpService: PopUpService, private el: ElementRef, private ticketService :TicketService) {
       this.element = el.nativeElement;
   }
 
   ngOnInit() {
-      // add self (this modal instance) to the modal service so it can be opened from any component
+
       this.popUpService.add(this);
 
       // move element to bottom of page (just before </body>) so it can be displayed above everything else
       document.body.appendChild(this.element);
 
-      // close modal on background click
+      // close Pop Up on background click
       this.element.addEventListener('click', (el: any) => {
           if (el.target.className === 'jw-modal') {
               this.close();
           }
       });
+
   }
 
   ngOnDestroy() {
-      // remove self from modal service
-      this.popUpService.remove(this);
+      
+    this.popUpService.remove(this);
+    this.element.remove();
 
-      // remove modal element from html
-      this.element.remove();
   }
 
-  open() {
+  open(callback_function:Function) {
+
       this.isOpen = true;
+      this.callback_function = callback_function
+
     }
 
   close() {
+
       this.isOpen = false;
+      if (this.callback_function){
+        this.callback_function()
+    }
+
   }
+
+  create_new_ticket(){
+
+    let ticket: Ticket
+
+    ticket = { 
+      id: NaN,
+      title: this.newTicketForm.value.title ?? '',
+      necessary_tickets: [],
+      details: this.newTicketForm.value.details ?? '',
+      priority:1, 
+      //priority: this.newTicketForm.value.priority ?? 1, //TODO number
+      state:1 }
+
+      this.ticketService.createNewTicket(ticket).subscribe();
+      
+
+      }
 
 }

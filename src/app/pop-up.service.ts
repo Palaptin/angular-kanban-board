@@ -25,21 +25,21 @@ export class PopUpService {
       this.modals = this.modals.filter(x => x === modal);
   }
 
-  open(id: string) {
-    
-      const modal = this.modals.find(x => x.id === id);
+  open(id: string, callback_function: Function) {
+    const modal = this.modals.find(x => x.id === id);
 
-      if (!modal) {
-          throw new Error(`modal '${id}' not found`);
-      }
+    if (!modal) {
+        throw new Error(`modal '${id}' not found`);
+    }
 
-      modal.open();
+    modal.open(callback_function);
   }
 
   close() {
-      // close the modal that is currently open
-      const modal = this.modals.find(x => x.isOpen);
-      modal?.close();
+    // close the modal that is currently open
+    const modal = this.modals.find(x => x.isOpen);
+    modal?.close();
+   
   }
 
 }

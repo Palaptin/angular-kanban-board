@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { TicketService } from '../ticket.service';
 import { Ticket } from '../ticket';
 import { DndDropEvent } from 'ngx-drag-drop';
@@ -11,7 +11,7 @@ import { PopUpService } from '../pop-up.service';
   styleUrl: './kanban-board.component.css'
 })
 
-export class KanbanBoardComponent {
+export class KanbanBoardComponent{
 
 
   constructor(public ticketService: TicketService, private popupService: PopUpService){}
@@ -56,8 +56,11 @@ export class KanbanBoardComponent {
   }
 
   newTicket(){
-    this.popupService.open("new_ticket")
+    this.popupService.open("new_ticket", this.getTickets)
+    
   }
+
+
 
   closeNewTicketPopup(){
     this.popupService.close()

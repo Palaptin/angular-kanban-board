@@ -1,8 +1,21 @@
 <div *ngIf="isOpen" class="app-new-ticket-pop-up">
     <div class="app-new-ticket-pop-up-body">
         <ng-content></ng-content>
-        <h1>A custom modal popup</h1>
-            <p>Home page text: </p>
-            <button (click)="close();">Abbrechen</button>
+        <h1>Neues Ticket erstellen</h1>
+        <form [formGroup]="newTicketForm" (submit)="create_new_ticket()">
+            <label for="title">Titel</label>
+            <input id="title" type="text" formControlName="title"><br>
+            
+            <label for="details">Details</label>
+            <input id="details" type="text" formControlName="details"><br>
+
+            <label for="priority">Priorität</label>
+            <input id="priority" type="text" formControlName="priority"><br>
+
+            <button type="submit" class="primary">Apply now</button>
+        </form>
+
+    
+        <button (click)="close();">Abbrechen</button>
     </div>
 </div>

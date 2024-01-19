@@ -11,6 +11,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DummyTempDbService } from './dummy-temp-db.service';
 import { DndDraggableDirective, DndModule } from 'ngx-drag-drop';
 import { NewTicketPopUpComponent } from './new-ticket-pop-up/new-ticket-pop-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,10 @@ import { NewTicketPopUpComponent } from './new-ticket-pop-up/new-ticket-pop-up.c
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      DummyTempDbService, { dataEncapsulation: false }),
-      DndDraggableDirective,
-      DndModule
+    DummyTempDbService, { dataEncapsulation: false }),
+    DndDraggableDirective,
+    DndModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
