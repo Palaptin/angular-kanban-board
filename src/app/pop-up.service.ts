@@ -26,7 +26,7 @@ export class PopUpService {
   }
 
   open(id: string) {
-      // open modal specified by id
+    
       const modal = this.modals.find(x => x.id === id);
 
       if (!modal) {

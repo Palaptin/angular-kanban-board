@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TicketService } from '../ticket.service';
 import { Ticket } from '../ticket';
 import { DndDropEvent } from 'ngx-drag-drop';
-import { NewTicketPopUpComponent } from '../new-ticket-pop-up/new-ticket-pop-up.component';
+import { PopUpService } from '../pop-up.service';
 
 
 @Component({
@@ -13,13 +13,13 @@ import { NewTicketPopUpComponent } from '../new-ticket-pop-up/new-ticket-pop-up.
 
 export class KanbanBoardComponent {
 
-  
-  constructor(public ticketService: TicketService){}
+
+  constructor(public ticketService: TicketService, private popupService: PopUpService){}
   
   ngOnInit(): void {
   
     this.getTickets();
-  
+
   }
 
   getTickets(): void {
@@ -56,9 +56,11 @@ export class KanbanBoardComponent {
   }
 
   newTicket(){
+    this.popupService.open("new_ticket")
+  }
 
-    // this.new_ticket.open()
-
+  closeNewTicketPopup(){
+    this.popupService.close()
   }
 
   onDrop(event: DndDropEvent, state: number) {

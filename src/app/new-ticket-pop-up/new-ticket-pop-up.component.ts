@@ -10,16 +10,17 @@ import { PopUp } from '../pop-up';
 export class NewTicketPopUpComponent implements PopUp{
 
   @Input() id!: string;
+  
   isOpen = false;
   private element: any;
 
-  constructor(private modalService: PopUpService, private el: ElementRef) {
+  constructor(private popUpService: PopUpService, private el: ElementRef) {
       this.element = el.nativeElement;
   }
 
   ngOnInit() {
       // add self (this modal instance) to the modal service so it can be opened from any component
-      this.modalService.add(this);
+      this.popUpService.add(this);
 
       // move element to bottom of page (just before </body>) so it can be displayed above everything else
       document.body.appendChild(this.element);
@@ -34,21 +35,17 @@ export class NewTicketPopUpComponent implements PopUp{
 
   ngOnDestroy() {
       // remove self from modal service
-      this.modalService.remove(this);
+      this.popUpService.remove(this);
 
       // remove modal element from html
       this.element.remove();
   }
 
   open() {
-      this.element.style.display = 'block';
-      document.body.classList.add('jw-modal-open');
       this.isOpen = true;
-  }
+    }
 
   close() {
-      this.element.style.display = 'none';
-      document.body.classList.remove('jw-modal-open');
       this.isOpen = false;
   }
 
