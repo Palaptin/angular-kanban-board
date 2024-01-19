@@ -1,14 +1,15 @@
 .ticket {
     margin:20px;
     width:170px;
-    height:150px;
-    padding:25px 15px;
+    height:190px;
+    padding:5px 15px;
     background:#fefabc;
     background-color: #fefabc;
     background-image: linear-gradient(150deg, #efec88 0%, #fefabc 100%);
     border: 1px solid #cccccc;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
     transform:rotate(4deg);
+     border-bottom-right-radius:60px 5px;
 }
 .ticket::before {
     content:"";
@@ -21,7 +22,6 @@
     left: calc(50% - 12px);
     box-shadow: 4px 4px 3px rgba(0,0,0,0.5);
   }
-  
   .ticket::after {
     content:"";
     position: absolute;

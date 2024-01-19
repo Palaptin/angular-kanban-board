@@ -27,8 +27,8 @@ export class KanbanTicketComponent {
     console.log("onDraggableLinked")
   //throw new Error('Method not implemented.');
   }
-  onDraggableMoved(event: Event) {
-    console.log(event)
+  onDraggableMoved(event: Event, ticket: Ticket) {
+    console.log("onDraggableMoved")
   }
   onDragCanceled($event: Event) {
     console.log("onDragCanceled")
