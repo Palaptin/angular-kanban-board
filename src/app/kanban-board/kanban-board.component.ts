@@ -56,7 +56,7 @@ export class KanbanBoardComponent{
   }
 
   newTicket(){
-    this.popupService.open("new_ticket", this.getTickets)
+    this.popupService.open("new_ticket", this.move_insert_ticket)
     
   }
 

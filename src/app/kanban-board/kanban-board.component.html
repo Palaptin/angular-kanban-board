@@ -11,11 +11,11 @@
         </div>
 
         <div class = "ticket_area"
-        [dndDisableIf]="false"
-        (dndDrop)="onDrop($event, 1)"
-        dndDragoverClass="custom-drag-over"
-        dndDropzone
-        *ngIf="ticketService.tickets$ | async as tickets">
+            [dndDisableIf]="false"
+            (dndDrop)="onDrop($event, 1)"
+            dndDragoverClass="custom-drag-over"
+            dndDropzone
+            *ngIf="ticketService.tickets$ | async as tickets">
 
             <ng-container *ngFor="let ticket of tickets[0]">
         
