@@ -16,6 +16,7 @@ export class NewTicketPopUpComponent implements PopUp{
   
   isOpen = false;
   private element: any;
+  ticket!:Ticket;
 
   callback_function?: Function;
 
@@ -57,6 +58,14 @@ export class NewTicketPopUpComponent implements PopUp{
 
       this.isOpen = true;
       this.callback_function = callback_function
+      this.ticket = { 
+        id: NaN,
+        title: this.newTicketForm.value.title ?? '',
+        necessary_tickets: [],
+        details: this.newTicketForm.value.details ?? '',
+        priority: this.newTicketForm.value.priority ?? "1", //TODO number
+        state:1 
+      }
 
     }
 
@@ -84,7 +93,9 @@ export class NewTicketPopUpComponent implements PopUp{
     if (this.callback_function){
       this.callback_function(ticket)
     }
+    this.newTicketForm.reset()
 
   }
 
+  
 }

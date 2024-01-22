@@ -2,6 +2,9 @@
     <div class="app-new-ticket-pop-up-body">
         <ng-content></ng-content>
         <h1>Neues Ticket erstellen</h1>
+        
+        <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=true></app-kanban-ticket>
+        
         <form [formGroup]="newTicketForm" (submit)="create_new_ticket()">
             <label for="title">Titel</label>
             <input id="title" type="text" formControlName="title"><br>

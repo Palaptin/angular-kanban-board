@@ -10,7 +10,7 @@ import { TicketService } from '../ticket.service';
 })
 export class KanbanTicketComponent {
   @Input() ticket!: Ticket;
-  @Input() kanban_board!: KanbanBoardComponent;
+  @Input() ticket_not_draggable!: boolean;
 
   constructor(private ticketService: TicketService){}
 

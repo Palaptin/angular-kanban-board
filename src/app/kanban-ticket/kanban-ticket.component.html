@@ -1,15 +1,17 @@
 <div class="ticket">
     <!-- https://github.com/reppners/ngx-drag-drop/issues/120 -->
     <div 
+    [dndDisableDragIf]="ticket_not_draggable"
     [dndDraggable]="ticket"
     [dndEffectAllowed]="'copyMove'"
     >
         <div class="pin" dndHandle></div>
     </div>
     <div>
-        <h2>{{ticket.title}}</h2>
-        <p>Dependencys: {{ticket.necessary_tickets.length}}</p>
+        <span class="ticket-priority">Prio: {{ticket.priority}}</span>
+        <span class="ticket-dependencys">Deps: {{ticket.necessary_tickets.length}}</span>
+        <h3 class="ticket-title">{{ticket.title}}</h3>
         <p>Details: {{ticket.details}}</p>
-        <p>Priorität: {{ticket.priority}}</p>
+        
     </div>
 </div>
