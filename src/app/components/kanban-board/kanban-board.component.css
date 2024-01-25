@@ -1,9 +1,9 @@
 .kanban_column {
   display: flex;
   flex-direction: column;
-  border: 5px solid rgb(0, 140, 255);
+  border: 5px solid rgb(61, 144, 252);
   border-radius: 0.4cm;
-  flex:1;
+  flex: 1;
   position: relative;
 }
 
@@ -16,7 +16,7 @@
   padding: 15px;
 }
 
-.create_new_ticket_button{
+.create_new_ticket_button {
   background-color: lawngreen;
   position: absolute;
   right: 10px;

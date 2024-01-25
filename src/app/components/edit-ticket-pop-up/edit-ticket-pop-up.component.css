@@ -1,0 +1,42 @@
+.app-new-ticket-pop-up {
+    /*TODO tickets zusammenfassen*/
+    /* modal container fixed across whole screen */
+    position: absolute;
+    inset: 0;
+
+    /* z-index must be higher than everything else on the page */
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+
+    /* enables scrolling for tall modals */
+    overflow: auto;
+
+}
+
+.app-new-ticket-pop-up-body {
+    padding: 100px;
+    background-image: url('../../../assets/cork.png');
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 10px;
+    border-style: groove;
+    border-radius: 5px;
+    border-color: rgb(61, 144, 252);
+
+
+}
+
+
+body.app-new-ticket-pop-up-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}
+
+.popup-title {
+    width: fit-content;
+    padding: 5px;
+    background-color: rgb(255, 145, 0);
+
+}

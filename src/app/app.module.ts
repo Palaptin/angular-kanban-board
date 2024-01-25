@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { KanbanBoardComponent } from './kanban-board/kanban-board.component';
-import { KanbanTicketComponent } from './kanban-ticket/kanban-ticket.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { KanbanBoardComponent } from './components/kanban-board/kanban-board.component';
+import { KanbanTicketComponent } from './components/kanban-ticket/kanban-ticket.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { DummyTempDbService } from './dummy-temp-db.service';
 import { DndDraggableDirective, DndModule } from 'ngx-drag-drop';
-import { NewTicketPopUpComponent } from './new-ticket-pop-up/new-ticket-pop-up.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NewTicketPopUpComponent } from './components/new-ticket-pop-up/new-ticket-pop-up.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditTicketPopUpComponent } from './components/edit-ticket-pop-up/edit-ticket-pop-up.component';
+import { MessagePopUpComponent } from './components/message-pop-up/message-pop-up.component';
+import { GlobalErrorHandler } from './global-error-handler';
 
 @NgModule({
   declarations: [
@@ -20,18 +21,24 @@ import { ReactiveFormsModule } from '@angular/forms';
     KanbanBoardComponent,
     KanbanTicketComponent,
     NewTicketPopUpComponent,
+    EditTicketPopUpComponent,
+    MessagePopUpComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-    DummyTempDbService, { dataEncapsulation: false }),
     DndDraggableDirective,
     DndModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

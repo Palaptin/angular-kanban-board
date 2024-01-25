@@ -1,0 +1,53 @@
+<div class="ticket">
+    <!-- https://github.com/reppners/ngx-drag-drop/issues/120 -->
+    <div *ngIf="!ticket_not_draggable" [dndDisableDragIf]="ticket_not_draggable" [dndDraggable]="ticket"
+        [dndEffectAllowed]="'copyMove'">
+        <div class="pin" dndHandle></div>
+    </div>
+    <div>
+
+        <ng-container *ngIf="ticket_design.priority_editable">
+
+            <input id="priority" [(ngModel)]="ticket.priority" value="{{ticket.priority}}" placeholder="Prio"
+                class="ticket-priority">
+
+        </ng-container>
+
+        <span *ngIf="!ticket_design.priority_editable" class="ticket-priority">Prio: {{ticket.priority}}</span>
+
+
+        <ng-container *ngIf="ticket_design.necessary_tickets_editable">
+
+            <input id="necessary_tickets" [(ngModel)]="ticket.necessary_tickets" ng-model="ticket.necessary_tickets"
+                class="ticket-dependencys" value="{{ticket.necessary_tickets.length}}" placeholder="Dependencys">
+
+        </ng-container>
+
+        <span *ngIf="!ticket_design.necessary_tickets_editable" class="ticket-dependencys">Deps:
+            {{ticket.necessary_tickets.length}}</span>
+
+
+        <ng-container *ngIf="ticket_design.title_editable">
+
+            <input id="title" [(ngModel)]="ticket.title" ng-model="ticket.title" value="{{ticket.title}}"
+                placeholder="Title" class="ticket-title">
+
+        </ng-container>
+
+        <h3 *ngIf="!ticket_design.title_editable" class="ticket-title">{{ticket.title}}</h3>
+
+
+        <ng-container *ngIf="ticket_design.details_editable">
+
+            <textarea id="details" [(ngModel)]="ticket.details" ng-model="ticket.details" value="{{ticket.details}}"
+                placeholder="details"> </textarea>
+
+        </ng-container>
+
+        <p *ngIf="!ticket_design.details_editable"> Details: {{ticket.details}}</p>
+
+
+        <button *ngIf="any_field_editable" type="submit" class="primary" (click)="onSave();">Save</button>
+        <button *ngIf="editing_allowed" type="submit" class="primary" (click)="onEditRequest();">Edit</button>
+    </div>
+</div>

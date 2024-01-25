@@ -1,0 +1,12 @@
+<div *ngIf="isOpen" class="app-new-ticket-pop-up">
+    <div class="app-new-ticket-pop-up-body">
+        <ng-content></ng-content>
+        <h1 class="popup-title">Edit Ticket</h1>
+
+        <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=true [full_editable]=true [editing_allowed]=false
+            (ticket_saved)="edit_ticket()"></app-kanban-ticket>
+
+        <button (click)="closePopUp();">Cancel</button>
+        <button (click)="delete_ticket();">Delete Ticket</button>
+    </div>
+</div>

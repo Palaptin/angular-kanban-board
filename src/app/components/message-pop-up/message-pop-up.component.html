@@ -1,0 +1,8 @@
+<div *ngIf="isOpen" class="app-new-ticket-pop-up">
+    <div class="app-new-ticket-pop-up-body">
+        <ng-content></ng-content>
+        <h1 class="popup-title">Message</h1>
+        <p class="popup-text">{{message}}</p>
+        <button (click)="closePopUp();">OK</button>
+    </div>
+</div>

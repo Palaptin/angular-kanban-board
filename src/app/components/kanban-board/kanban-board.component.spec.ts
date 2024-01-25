@@ -10,8 +10,8 @@ describe('KanbanBoardComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [KanbanBoardComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(KanbanBoardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

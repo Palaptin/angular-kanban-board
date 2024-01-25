@@ -10,8 +10,8 @@ describe('NewTicketPopUpComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [NewTicketPopUpComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(NewTicketPopUpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
