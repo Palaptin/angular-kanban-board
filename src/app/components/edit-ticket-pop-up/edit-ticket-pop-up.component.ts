@@ -61,13 +61,8 @@ export class EditTicketPopUpComponent implements PopUp {
 
 
   closePopUp() {
-    console.log("close");
-    console.log(this.current_tickets);
-    console.log(this.ticket);
     this.ticket = this.current_tickets || this.ticket
-    console.log(this.ticket);
     this.isOpen = false;
-
   }
 
   edit_ticket() {

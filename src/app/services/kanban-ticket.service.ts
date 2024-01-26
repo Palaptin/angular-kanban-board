@@ -1,8 +1,9 @@
-import { Injectable, WritableSignal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { EditTicketPopUpComponent } from '../components/edit-ticket-pop-up/edit-ticket-pop-up.component';
 import { PopUpService } from './pop-up.service';
 import { Ticket } from '../interfaces/ticket';
 import { TicketService } from './ticket.service';
+import { DependenciesPopUpComponent } from '../components/dependencies-pop-up/dependencies-pop-up.component';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,11 @@ export class KanbanTicketService {
     }
     let edit_popup: EditTicketPopUpComponent = <EditTicketPopUpComponent>this.popupService.getPopup("edit_ticket")
     edit_popup.closePopUp()
+  }
+
+  dependencies(ticket: Ticket) {
+    let edit_popup: DependenciesPopUpComponent = <DependenciesPopUpComponent>this.popupService.getPopup("ticket_deps")
+    edit_popup.open(ticket)
   }
 
 }

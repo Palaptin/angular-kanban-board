@@ -1,0 +1,13 @@
+<div *ngIf="isOpen" class="app-new-ticket-pop-up">
+    <div class="app-new-ticket-pop-up-body">
+        <ng-content></ng-content>
+        <h1 class="popup-title">Dependencys</h1>
+        <form [formGroup]="dropDownForm">
+            <ng-multiselect-dropdown [placeholder]="'Dependencys'" [settings]="dropdownSettings"
+                [data]="dropdown_ticket_list" formControlName="myItems">
+            </ng-multiselect-dropdown>
+        </form>
+        <button (click)="closePopUp();">Cancel</button>
+        <button (click)="save();">Save</button>
+    </div>
+</div>

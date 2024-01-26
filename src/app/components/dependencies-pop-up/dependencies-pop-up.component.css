@@ -5,7 +5,7 @@
     inset: 0;
 
     /* z-index must be higher than everything else on the page */
-    z-index: 9;
+    z-index: 10;
     background-color: rgba(0, 0, 0, 0.75);
     padding: 40px;
 
@@ -39,4 +39,10 @@ body.app-new-ticket-pop-up-open {
     padding: 5px;
     background-color: rgb(255, 145, 0);
 
+}
+
+.ticket_selector {
+    width: fit-content;
+    padding: 5px;
+    background-color: greenyellow;
 }

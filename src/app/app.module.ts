@@ -13,6 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditTicketPopUpComponent } from './components/edit-ticket-pop-up/edit-ticket-pop-up.component';
 import { MessagePopUpComponent } from './components/message-pop-up/message-pop-up.component';
 import { GlobalErrorHandler } from './global-error-handler';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { DependenciesPopUpComponent } from './components/dependencies-pop-up/dependencies-pop-up.component'
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { GlobalErrorHandler } from './global-error-handler';
     NewTicketPopUpComponent,
     EditTicketPopUpComponent,
     MessagePopUpComponent,
+    DependenciesPopUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,7 @@ import { GlobalErrorHandler } from './global-error-handler';
     DndModule,
     ReactiveFormsModule,
     FormsModule,
+    NgMultiSelectDropDownModule,
   ],
   providers: [
     {

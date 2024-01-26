@@ -70,7 +70,6 @@ export class NewTicketPopUpComponent implements PopUp {
 
   create_new_ticket() {
 
-    console.log(this.ticket)
     this.ticketService.createNewTicket(this.ticket).subscribe(
       remote_ticket => this.ticket.id = remote_ticket.id
     );
@@ -78,7 +77,6 @@ export class NewTicketPopUpComponent implements PopUp {
     if (this.callback_function) {
       this.callback_function(this.ticket)
     }
-    console.log(Object.keys(this));
     this.closePopUp()
 
   }

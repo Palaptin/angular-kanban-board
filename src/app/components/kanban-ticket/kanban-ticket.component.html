@@ -18,8 +18,14 @@
 
         <ng-container *ngIf="ticket_design.necessary_tickets_editable">
 
-            <input id="necessary_tickets" [(ngModel)]="ticket.necessary_tickets" ng-model="ticket.necessary_tickets"
-                class="ticket-dependencys" value="{{ticket.necessary_tickets.length}}" placeholder="Dependencys">
+            <!-- <input id="necessary_tickets" [(ngModel)]="ticket.necessary_tickets" ng-model="ticket.necessary_tickets"
+                class="ticket-dependencys" value="{{ticket.necessary_tickets.length}}" placeholder="Dependencys"> -->
+            <!-- <span id="necessary_tickets" class="ticket_selector">
+                <ng-multiselect-dropdown [placeholder]="'Dependencys'" [settings]="dropdownSettings"
+                    [data]="dropdownList ">//TODO POPUP
+                </ng-multiselect-dropdown>
+            </span> -->
+            <button type="submit" class="primary" (click)="dependencies();">dependencies</button>
 
         </ng-container>
 
