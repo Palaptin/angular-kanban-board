@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component, ElementRef, Input, WritableSignal } from '@angular/core';
 import { Ticket } from '../../interfaces/ticket';
 import { PopUpService } from '../../services/pop-up.service';
 import { TicketService } from '../../services/ticket.service';
@@ -50,19 +50,22 @@ export class EditTicketPopUpComponent implements PopUp {
 
     this.isOpen = true;
     this.ticket = ticket
-    this.current_tickets = this.ticket
-    console.log("open");
-
-    console.log(this.current_tickets);
-    console.log(this.ticket);
+    this.current_tickets = { ...ticket }
 
   }
+
+  cancel() {
+    this.closePopUp()
+    this.ticketService.getTickets()
+  }
+
 
   closePopUp() {
     console.log("close");
     console.log(this.current_tickets);
-
+    console.log(this.ticket);
     this.ticket = this.current_tickets || this.ticket
+    console.log(this.ticket);
     this.isOpen = false;
 
   }

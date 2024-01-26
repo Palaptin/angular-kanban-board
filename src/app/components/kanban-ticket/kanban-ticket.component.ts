@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, Signal, WritableSignal, signal } from '@angular/core';
 import { Ticket } from '../../interfaces/ticket';
+import { TicketService } from '../../services/ticket.service';
+import { KanbanTicketService } from '../../services/kanban-ticket.service';
 
 @Component({
   selector: 'app-kanban-ticket',
@@ -15,10 +17,10 @@ export class KanbanTicketComponent {
   @Output() ticket_saved = new EventEmitter<KanbanTicketComponent>();
   @Output() editing_requested = new EventEmitter<KanbanTicketComponent>();
   @Output() ticket_was_deleted = new EventEmitter<KanbanTicketComponent>();
-
+  @Output() ticketChange = new EventEmitter<Ticket>();
   ticket_design!: ITicketDesign;
 
-  constructor() { }
+  constructor(private my_service: KanbanTicketService) { }
 
   ngOnInit() {
 
@@ -28,7 +30,6 @@ export class KanbanTicketComponent {
     else {
       this.ticket_design = { details_editable: false, necessary_tickets_editable: false, priority_editable: false, state_editable: false, title_editable: false }
     }
-
   }
 
   get any_field_editable(): Boolean {
@@ -51,11 +52,13 @@ export class KanbanTicketComponent {
   }
 
   onSave() {
-    this.ticket_saved.emit(this);
+    this.my_service.save_ticket(this.ticket)
   }
 
   onEditRequest() {
-    this.editing_requested.emit(this);
+    this.my_service.edit_ticket(this.ticket);
+
+    console.log(this.ticket);
   }
 
 }

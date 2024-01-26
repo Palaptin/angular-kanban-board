@@ -13,13 +13,10 @@
         </div>
 
         <div class="ticket_area" [dndDisableIf]="false" (dndDrop)="onDrop($event, 1)"
-            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ | async as tickets">
+            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ as tickets">
 
             <ng-container *ngFor="let ticket of tickets[0]">
-
-                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false
-                    (editing_requested)=ticket_requested_editing(ticket)></app-kanban-ticket>
-
+                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false></app-kanban-ticket>
             </ng-container>
 
         </div>
@@ -31,12 +28,11 @@
         <div class="collumn_title">In Progress</div>
 
         <div class="ticket_area" [dndDisableIf]="false" (dndDrop)="onDrop($event, 2)"
-            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ | async as tickets">
+            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ as tickets">
 
             <ng-container *ngFor="let ticket of tickets[1] ">
 
-                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false
-                    (editing_requested)=ticket_requested_editing(ticket)></app-kanban-ticket>
+                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false></app-kanban-ticket>
 
             </ng-container>
 
@@ -49,12 +45,11 @@
         <div class="collumn_title">Waiting</div>
 
         <div class="ticket_area" [dndDisableIf]="false" (dndDrop)="onDrop($event, 3)"
-            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ | async as tickets">
+            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ as tickets">
 
             <ng-container *ngFor="let ticket of tickets[2] ">
 
-                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false
-                    (editing_requested)=ticket_requested_editing(ticket)></app-kanban-ticket>
+                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false></app-kanban-ticket>
 
             </ng-container>
 
@@ -67,12 +62,11 @@
         <div class="collumn_title">Finished</div>
 
         <div class="ticket_area" [dndDisableIf]="false" (dndDrop)="onDrop($event, 4)"
-            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ | async as tickets">
+            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ as tickets">
 
             <ng-container *ngFor="let ticket of tickets[3] ">
 
-                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false
-                    (editing_requested)=ticket_requested_editing(ticket)></app-kanban-ticket>
+                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false></app-kanban-ticket>
 
             </ng-container>
 
@@ -85,12 +79,11 @@
         <div class="collumn_title">Productive</div>
 
         <div class="ticket_area" [dndDisableIf]="false" (dndDrop)="onDrop($event, 5)"
-            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ | async as tickets">
+            dndDragoverClass="custom-drag-over" dndDropzone *ngIf="ticketService.tickets$ as tickets">
 
             <ng-container *ngFor="let ticket of tickets[4] ">
 
-                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false
-                    (editing_requested)=ticket_requested_editing(ticket)></app-kanban-ticket>
+                <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=false></app-kanban-ticket>
 
             </ng-container>
 

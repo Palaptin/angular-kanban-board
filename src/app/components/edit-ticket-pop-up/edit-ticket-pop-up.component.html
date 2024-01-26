@@ -6,7 +6,7 @@
         <app-kanban-ticket [ticket]=ticket [ticket_not_draggable]=true [full_editable]=true [editing_allowed]=false
             (ticket_saved)="edit_ticket()"></app-kanban-ticket>
 
-        <button (click)="closePopUp();">Cancel</button>
+        <button (click)="cancel();">Cancel</button>
         <button (click)="delete_ticket();">Delete Ticket</button>
     </div>
 </div>
